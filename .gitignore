@@ -19,3 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore the following folders
+lib/*
+log/*
+public/uploads/*
+.DS_Store
