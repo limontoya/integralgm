@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @producto.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @producto.descripcion %>
+</p>
+
+<p>
+  <strong>Caracteristicas:</strong>
+  <%= @producto.caracteristicas %>
+</p>
+
+<p>
+  <strong>Especificaciones:</strong>
+  <%= @producto.especificaciones %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @producto.avatar %>
+</p>
+
+<p>
+  <strong>Es servicio:</strong>
+  <%= @producto.es_servicio %>
+</p>
+
+<p>
+  <strong>Es propio:</strong>
+  <%= @producto.es_propio %>
+</p>
+
+<p>
+  <strong>Nombre empresa:</strong>
+  <%= @producto.nombre_empresa %>
+</p>
+
+<p>
+  <strong>Sitio empresa:</strong>
+  <%= @producto.sitio_empresa %>
+</p>
+
+<p>
+  <strong>Url prod empresa:</strong>
+  <%= @producto.url_prod_empresa %>
+</p>
+
+<%= link_to 'Edit', edit_producto_path(@producto) %> |
+<%= link_to 'Back', productos_path %>
