@@ -20,10 +20,10 @@
   <%= @producto.especificaciones %>
 </p>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @producto.avatar %>
-</p>
+<% @producto_adjuntos.each do |p| %>
+  <%= image_tag p.avatar_url , class: 'img' %>
+  <%= link_to "Editar Adjunto", edit_producto_adjunto_path(p) %>
+<% end %>
 
 <p>
   <strong>Es servicio:</strong>

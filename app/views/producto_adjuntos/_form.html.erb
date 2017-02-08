@@ -1,0 +1,23 @@
+<%= image_tag @producto_adjunto.avatar %>
+<%= form_for(producto_adjunto) do |f| %>
+  <% if producto_adjunto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(producto_adjunto.errors.count, "error") %> prohibited this producto_adjunto from being saved:</h2>
+
+      <ul>
+      <% producto_adjunto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :avatar %> <br>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

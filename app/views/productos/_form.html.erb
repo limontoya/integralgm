@@ -31,10 +31,13 @@
     <%= f.text_area :especificaciones %>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.text_field :avatar %>
-  </div>
+  <%= f.fields_for :producto_adjuntos do |p| %>
+
+    <div class="field">
+      <%= p.label :avatar %>
+      <%= p.file_field :avatar, :multiple => true, name: "producto_adjuntos[avatar][]" %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :es_servicio %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Producto Adjuntos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Avatar</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @producto_adjuntos.each do |producto_adjunto| %>
+      <tr>
+        <td><%= producto_adjunto.producto_id %></td>
+        <td><%=image_tag producto_adjunto.avatar , class: 'img_small'%></td>
+        <td><%= link_to 'Show', producto_adjunto %></td>
+        <td><%= link_to 'Edit', edit_producto_adjunto_path(producto_adjunto) %></td>
+        <td><%= link_to 'Destroy', producto_adjunto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Producto Adjunto', new_producto_adjunto_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @producto_adjunto.producto_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @producto_adjunto.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_producto_adjunto_path(@producto_adjunto) %> |
+<%= link_to 'Back', producto_adjuntos_path %>

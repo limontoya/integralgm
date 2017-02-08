@@ -10,11 +10,13 @@ class ProductosController < ApplicationController
   # GET /productos/1
   # GET /productos/1.json
   def show
+    @producto_adjuntos = @producto.producto_adjuntos.all
   end
 
   # GET /productos/new
   def new
     @producto = Producto.new
+    @producto_adjunto = @producto.producto_adjuntos.build
   end
 
   # GET /productos/1/edit
@@ -28,6 +30,12 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.save
+
+        #Accept multiple images for Producto
+        params[:producto_adjuntos]['avatar'].each do |a|
+          @producto_adjunto = @producto.producto_adjuntos.create!(:avatar => a)
+        end
+
         format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
         format.json { render :show, status: :created, location: @producto }
       else
@@ -69,6 +77,6 @@ class ProductosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :descripcion, :caracteristicas, :especificaciones, :avatar, :es_servicio, :es_propio, :nombre_empresa, :sitio_empresa, :url_prod_empresa)
+      params.require(:producto).permit(:nombre, :descripcion, :caracteristicas, :especificaciones, :avatar, :es_servicio, :es_propio, :nombre_empresa, :sitio_empresa, :url_prod_empresa, producto_adjuntos_attributes: [:id, :producto_id, :avatar])
     end
 end
