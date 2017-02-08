@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aboutus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Mision</th>
+      <th>Vision</th>
+      <th>Descripcion</th>
+      <th>Contactenos</th>
+      <th>Copyright</th>
+      <th>Urlnosotros</th>
+      <th>Urlmision</th>
+      <th>Urlvision</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aboutus.each do |aboutu| %>
+      <tr>
+        <td><%= aboutu.nombre %></td>
+        <td><%= aboutu.mision %></td>
+        <td><%= aboutu.vision %></td>
+        <td><%= aboutu.descripcion %></td>
+        <td><%= aboutu.contactenos %></td>
+        <td><%= aboutu.copyright %></td>
+        <td><%= aboutu.urlnosotros %></td>
+        <td><%= aboutu.urlmision %></td>
+        <td><%= aboutu.urlvision %></td>
+        <td><%= link_to 'Show', aboutu %></td>
+        <td><%= link_to 'Edit', edit_aboutu_path(aboutu) %></td>
+        <td><%= link_to 'Destroy', aboutu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aboutu', new_aboutu_path %>

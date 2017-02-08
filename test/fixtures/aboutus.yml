@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  mision: MyText
+  vision: MyText
+  descripcion: MyText
+  contactenos: MyString
+  copyright: MyString
+  urlnosotros: MyString
+  urlmision: MyString
+  urlvision: MyString
+
+two:
+  nombre: MyString
+  mision: MyText
+  vision: MyText
+  descripcion: MyText
+  contactenos: MyString
+  copyright: MyString
+  urlnosotros: MyString
+  urlmision: MyString
+  urlvision: MyString

@@ -1,0 +1,62 @@
+<%= form_for(aboutu) do |f| %>
+  <% if aboutu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aboutu.errors.count, "error") %> prohibited this aboutu from being saved:</h2>
+
+      <ul>
+      <% aboutu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mision %>
+    <%= f.text_area :mision %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vision %>
+    <%= f.text_area :vision %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contactenos %>
+    <%= f.text_field :contactenos %>
+  </div>
+
+  <div class="field">
+    <%= f.label :copyright %>
+    <%= f.text_field :copyright %>
+  </div>
+
+  <div class="field">
+    <%= f.label :urlnosotros %>
+    <%= f.text_field :urlnosotros %>
+  </div>
+
+  <div class="field">
+    <%= f.label :urlmision %>
+    <%= f.text_field :urlmision %>
+  </div>
+
+  <div class="field">
+    <%= f.label :urlvision %>
+    <%= f.text_field :urlvision %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
