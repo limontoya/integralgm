@@ -31,18 +31,19 @@
 </p>
 
 <p>
+
   <strong>Urlnosotros:</strong>
-  <%= @aboutu.urlnosotros %>
+  <%=image_tag @aboutu.urlnosotros, class: 'img'  %>
 </p>
 
 <p>
   <strong>Urlmision:</strong>
-  <%= @aboutu.urlmision %>
+  <%=image_tag @aboutu.urlmision , class: 'img'  %>
 </p>
 
 <p>
   <strong>Urlvision:</strong>
-  <%= @aboutu.urlvision %>
+  <%=image_tag @aboutu.urlvision , class: 'img'  %>
 </p>
 
 <%= link_to 'Edit', edit_aboutu_path(@aboutu) %> |

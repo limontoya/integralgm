@@ -6,11 +6,54 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Integral GM</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><%= link_to "Productos", 'productos' %></li>
+            <li><%= link_to "Nosotros",  'aboutus' %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>Buscar...</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br><br>
+    <!-- MAIN CONTENT-->
   	<div id="main-container" class="container">
-    	<%= yield %>
+      <div class="row">
+        <div id="main-content" class="col-xs-9">
+          <%= yield %>
+        </div>
+        <div id="sidebar" class="col-xs-3">
+          The side bar
+        </div>
+      </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; 2017 Integral GM, SaS. &middot; otro &middot; nada </p>
+    </footer>
   </body>
 </html>
