@@ -23,7 +23,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Integral GM</a>
+          <a class="navbar-left" href="#">
+          <img src="../../logo.png" class="img-rounded" alt="Logo Integral GM" width="124" height="48">
+          </a>&nbsp;
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -31,8 +33,19 @@
             <li><%= link_to "Productos", 'productos' %></li>
             <li><%= link_to "Nosotros",  'aboutus' %></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>Buscar...</li>
+          <ul>
+            <li>
+              <div class="col-sm-3 col-md-3 pull-right">
+                <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+                </form>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -44,14 +57,12 @@
         <div id="main-content" class="col-xs-9">
           <%= yield %>
         </div>
-        <div id="sidebar" class="col-xs-3">
-          The side bar
-        </div>
       </div>
     </div>
 
     <!-- FOOTER -->
-    <footer>
+    <br><br>
+    <footer class="container">
       <p class="pull-right"><a href="#">Back to top</a></p>
       <p>&copy; 2017 Integral GM, SaS. &middot; otro &middot; nada </p>
     </footer>
