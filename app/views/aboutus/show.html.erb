@@ -1,50 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @aboutu.nombre %>
-</p>
+<br><br>
+  
+  <div class="container special">
+    <center>
+      <img src="../../../logo.png" class="img-rounded" alt="Logo Integral GM" width="524" height="228">
+    </center><br>
+  </div>
 
-<p>
-  <strong>Mision:</strong>
-  <%= @aboutu.mision %>
-</p>
+  <div class="container special bg-primary">
+    <!-- Example row of columns -->
+    <br>
+    <div class="row">
+      <div class="col-md-4"><center>
+        <span class="glyphicon glyphicon-tower" style="font-size: 60px;"></span>
+        <!--%=image_tag @aboutu.urlmision, class: 'img' % -->
+        <h2 class="text-center">Misi&oacute;n</h2></center>
+        <p class="text-justify"><%= @aboutu.mision %></p>
+      </div>
+      <div class="col-md-4"><center>
+        <span class="glyphicon glyphicon-eye-open" style="font-size: 60px;"></span>
+        <!-- %=image_tag @aboutu.urlvision, class: 'img' % -->
+        <h2 class="text-center">Visi&oacute;n</h2></center>
+        <p class="text-justify"><%= @aboutu.vision %></p>
+      </div>
+      <div class="col-md-4"><center>
+        <span class="glyphicon glyphicon-globe" style="font-size: 60px;"></span>
+        <!-- %=image_tag @aboutu.urlnosotros, class: 'img' % -->
+        <h2 class="text-center"> Cont&aacute;ctenos </h2></center>
+        <p><span class="glyphicon glyphicon-envelope"></span>
+          &nbsp;<%= @aboutu.contactenos %> </p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> 
+          Carrera 5 # 60 - 147
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;Cali, Valle 
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;760004 
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;Colombia
+        </p>
+        <p><span class="glyphicon glyphicon-phone-alt"></span>
+          &nbsp;(+572) 3737391</p>
+      </div>
+    </div>
+  </div>
+  <br><br>
 
-<p>
-  <strong>Vision:</strong>
-  <%= @aboutu.vision %>
-</p>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @aboutu.descripcion %>
-</p>
-
-<p>
-  <strong>Contactenos:</strong>
-  <%= @aboutu.contactenos %>
-</p>
-
-<p>
-  <strong>Copyright:</strong>
-  <%= @aboutu.copyright %>
-</p>
-
-<p>
-
-  <strong>Urlnosotros:</strong>
-  <%=image_tag @aboutu.urlnosotros, class: 'img'  %>
-</p>
-
-<p>
-  <strong>Urlmision:</strong>
-  <%=image_tag @aboutu.urlmision , class: 'img'  %>
-</p>
-
-<p>
-  <strong>Urlvision:</strong>
-  <%=image_tag @aboutu.urlvision , class: 'img'  %>
-</p>
+  <!-- Map -->
+  <section id="contact" class="map">
+    <center>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.522232937395!2d-76.49370795014795!3d3.465550952081271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a7c88605298d%3A0x7c72a7254705c66!2sCra.+5+%2360-147%2C+Cali%2C+Valle+del+Cauca!5e0!3m2!1ses!2sco!4v1486943605884" width="90%" height="350" frameborder="0" style="border:0"  scrolling="no" marginheight="0" marginwidth="0" allowfullscreen></iframe>
+      <br />
+      <small>
+          <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.522232937395!2d-76.49370795014795!3d3.465550952081271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a7c88605298d%3A0x7c72a7254705c66!2sCra.+5+%2360-147%2C+Cali%2C+Valle+del+Cauca!5e0!3m2!1ses!2sco!4v1486943605884"></a>
+      </small>
+    </center>
+  </section>
+  <br>
 
 <%= link_to 'Edit', edit_aboutu_path(@aboutu) %> |
 <%= link_to 'Back', aboutus_path %>
