@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'main/index'
+
+  get 'search/create'
+
   resources :aboutus
   resources :producto_adjuntos
   resources :productos

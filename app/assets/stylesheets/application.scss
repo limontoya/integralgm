@@ -13,5 +13,28 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets"
-@import "bootstrap"
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar.navbar.navbar-fixed-top li > a:hover {
+    color: white;
+    background-image: -webkit-linear-gradient(top, #ddf8ff 0%, #dae7ea 100%);
+	background-image: linear-gradient(to bottom, #ddf8ff 0%, #dae7ea 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
+    letter-spacing: 1px;
+    text-shadow: 1px 1px #00F0F0;
+}
+
+.carousel-control {
+  &.left, &.right {
+    background: none !important;
+    filter:none !important;
+    @include reset-filter();
+  }
+}
+
+.img-rounded:hover {
+	background: white !important;
+}

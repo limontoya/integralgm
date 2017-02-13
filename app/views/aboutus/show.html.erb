@@ -10,23 +10,20 @@
 
   <div class="container special bg-primary">
     <!-- Example row of columns -->
-    <br>
+    
     <div class="row">
       <div class="col-md-4"><center>
-        <span class="glyphicon glyphicon-tower" style="font-size: 60px;"></span>
-        <!--%=image_tag @aboutu.urlmision, class: 'img' % -->
+        <br><br><%=image_tag @aboutu.urlmision, class: 'img' %>
         <h2 class="text-center">Misi&oacute;n</h2></center>
         <p class="text-justify"><%= @aboutu.mision %></p>
       </div>
       <div class="col-md-4"><center>
-        <span class="glyphicon glyphicon-eye-open" style="font-size: 60px;"></span>
-        <!-- %=image_tag @aboutu.urlvision, class: 'img' % -->
+        <br><br><%=image_tag @aboutu.urlvision, class: 'img' %>
         <h2 class="text-center">Visi&oacute;n</h2></center>
         <p class="text-justify"><%= @aboutu.vision %></p>
       </div>
       <div class="col-md-4"><center>
-        <span class="glyphicon glyphicon-globe" style="font-size: 60px;"></span>
-        <!-- %=image_tag @aboutu.urlnosotros, class: 'img' % -->
+        <br><br><%=image_tag @aboutu.urlnosotros, class: 'img' %>
         <h2 class="text-center"> Cont&aacute;ctenos </h2></center>
         <p><span class="glyphicon glyphicon-envelope"></span>
           &nbsp;<%= @aboutu.contactenos %> </p>
@@ -40,6 +37,7 @@
           &nbsp;(+572) 3737391</p>
       </div>
     </div>
+    <br>
   </div>
   <br><br>
 

@@ -24,3 +24,12 @@
   background-image: url('../../bg-integm.png');
   color:white;
 }
+.img_integral {
+    border: 1px solid lightgray;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: #ffffff;
+    width: 90px;
+    border-radius: 200px;
+}
