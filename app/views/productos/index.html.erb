@@ -1,6 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Productos</h1>
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="text-primary">Productos</h2>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel text-right">
+  <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form', role: 'search' do %>
+    <div class="input-group-sm"><br>
+      <%= text_field_tag :keyword, nil, size: 30, placeholder: "Busca un producto..", class: "form-control"%>
+      <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"></i></span>
+    </div>
+  <% end %>
+</div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div id="resultados"></div>
+
+<br><br><br>
 
 <!-- Carousel
     ================================================== -->
@@ -13,7 +34,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="https://s-media-cache-ak0.pinimg.com/564x/59/6f/5e/596f5e0d76641e336be08c79b6b7a2a8.jpg" alt="First slide">
+          <img class="first-slide" src="https://s-media-cache-ak0.pinimg.com/564x/59/6f/5e/596f5e0d76641e336be08c79b6b7a2a8.jpg" alt="First slide" width="200px" height="100px">
           <div class="container">
             <div class="carousel-caption">
               <h1>Example headline.</h1>
@@ -23,7 +44,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="http://orig09.deviantart.net/ba70/f/2015/352/9/5/grey_kylo_vader_net_by_dekarogue-d9kjwuy.jpg" alt="Second slide">
+          <img class="second-slide" src="http://orig09.deviantart.net/ba70/f/2015/352/9/5/grey_kylo_vader_net_by_dekarogue-d9kjwuy.jpg" alt="Second slide" width="200px" height="100px">
           <div class="container">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
@@ -33,7 +54,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="https://s-media-cache-ak0.pinimg.com/736x/2d/49/b9/2d49b9f2a9186c2b2887b528dd974dae.jpg" alt="Third slide">
+          <img class="third-slide" src="https://s-media-cache-ak0.pinimg.com/736x/2d/49/b9/2d49b9f2a9186c2b2887b528dd974dae.jpg" alt="Third slide" width="200px" height="100px">
           <div class="container">
             <div class="carousel-caption">
               <h1>One more for good measure.</h1>
