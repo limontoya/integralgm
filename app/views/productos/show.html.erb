@@ -1,54 +1,106 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container special" style="width: 90%; height: 90%;">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @producto.nombre %>
-</p>
+  <div class="row">
+    <div class="box">
+        <div class="col-lg-12">
+            <hr>
+            <h3 class="intro-text text-center text-primary">
+                <strong><%= @producto.nombre %></strong>
+            </h3>
+            <hr>
+        </div>
+        <div class="col-md-6 col-md-4">
+          <div class="row">
+            <!-- Carousel ========================================== -->
+            <div align="center" id="myProductCarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <% @producto_adjuntos.each_with_index do |image, index| %>
+                  <li data-target="#myProductCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                <% end %>
+              </ol>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @producto.descripcion %>
-</p>
+              <div class="panel panel-primary" style="min-height: 200px; max-height: 200px;">
+              <br>
+                <div class="carousel-inner" role="listbox">
+                  <% @producto_adjuntos.each_with_index do |image, index| %> 
+                  <% if !index.nil? %>    
+                    <div class="item <%= index == 0 ? 'active' : '' %>">
+                      <%= image_tag image.avatar_url , class: 'img_thumb_slide_prod' %>
+                    </div>
+                  <% end %>
+                  <% end %>
+                </div>
 
-<p>
-  <strong>Caracteristicas:</strong>
-  <%= @producto.caracteristicas %>
-</p>
+                <a class="left carousel-control" href="#myProductCarousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myProductCarousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div><!-- /.carousel -->
+          </div>
+        </div>
 
-<p>
-  <strong>Especificaciones:</strong>
-  <%= @producto.especificaciones %>
-</p>
+        <div class="col-md-6">
+            <p class="text-justify"><%= @producto.descripcion %></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+  </div>
 
-<% @producto_adjuntos.each do |p| %>
-  <%= image_tag p.avatar_url , class: 'img' %>
-  <%= link_to "Editar Adjunto", edit_producto_adjunto_path(p) %>
-<% end %>
+  <div class="container special" style="width: 90%; height: 90%;">
+    <!-- Tabs to include more info about the Product -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#caract" class="text-primary"><b>Caracter&iacute;sticas</b></a></li>
+      <li><a data-toggle="tab" href="#especif" class="text-primary"><b>Especificaciones</b></a></li>
+      <li><a data-toggle="tab" href="#masinfo" class="text-primary"><b>M&aacute;s Info</b></a></li>
+    </ul>
+    <div class="tab-content" style="width: 90%;">
+      <div id="caract" class="tab-pane fade in active"><br><center>
+        <p class="text-justify"><%= @producto.caracteristicas %></p></center>
+      </div>
+      <div id="especif" class="tab-pane fade"><br>
+        <p class="text-justify"><%= @producto.especificaciones %></p>
+      </div>
+      <div id="masinfo" class="tab-pane fade"><br>
+        <p class="text-justify">
+          <% if @producto.es_servicio %>
+            <strong>Proveemos este servicio</strong>
+          <% else %>
+            <% if @producto.es_propio %>
+              <strong>Este es un Producto nuestro!</strong>
+            <% else %>
+              <strong><i>Este es un Producto de: </i></strong>
+              <p>
+                <strong>Nombre:</strong> <%= @producto.nombre_empresa %><br>
+                <strong>Sitio:</strong> <%= @producto.sitio_empresa %><br>
+                <strong>Url producto:</strong> <%= @producto.url_prod_empresa %>
+              </p>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Es servicio:</strong>
-  <%= @producto.es_servicio %>
-</p>
-
-<p>
-  <strong>Es propio:</strong>
-  <%= @producto.es_propio %>
-</p>
-
-<p>
-  <strong>Nombre empresa:</strong>
-  <%= @producto.nombre_empresa %>
-</p>
-
-<p>
-  <strong>Sitio empresa:</strong>
-  <%= @producto.sitio_empresa %>
-</p>
-
-<p>
-  <strong>Url prod empresa:</strong>
-  <%= @producto.url_prod_empresa %>
-</p>
+<br><br>
 
 <%= link_to 'Edit', edit_producto_path(@producto) %> |
 <%= link_to 'Back', productos_path %>
+
+<!--script> Solo en caso que se requiera que el slide inicie solo
+// Load this when the DOM is ready
+$(function(){
+  // You used .myCarousel here. 
+  // That's the class selector not the id selector,
+  // which is #myCarousel
+  $('#myProductCarousel').carousel();
+});
+</script -->

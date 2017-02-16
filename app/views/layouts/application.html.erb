@@ -29,10 +29,18 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Inicio</a></li>
-            <li><%= link_to "Productos", 'productos' %></li>
-            <li><%= link_to "Servicios", 'servicios' %></li>
-            <li><%= link_to "Nosotros" , 'aboutus/1'   %></li>
+            <li class="<%= 'active' if current_page?(root_path) %>">
+              <%= link_to 'Inicio', root_path %></li>
+
+            <li class="<%= 'active' if current_page?(productos_path) %>">
+              <%= link_to 'Productos y Servicios', productos_path %></li>
+
+            <li class="<%= 'active' if current_page?(root_path) %>">
+              <%= link_to 'Contáctenos', root_path %></li>
+
+            <li class="<%= 'active' if current_page?(aboutus_path) %>">
+              <% @nosotros = aboutus_path + '/1' %>
+              <%= link_to 'Nosotros', @nosotros %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

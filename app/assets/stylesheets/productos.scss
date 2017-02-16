@@ -13,9 +13,37 @@
 .img_small {
   height: 54px;
   width:  54px;
-  border: groove lightgray thick;
+  border: lightgray thick;
   background-repeat: inherit;
   background-position: 50%;
   border-radius: 50%;
   background-size: 100% auto;
+}
+.img_thumb_small {
+  height: 75px;
+  width:  150px;
+  border: lightgray thick;
+  background-repeat: inherit;
+  background-position: 50%;
+  border-radius: 5%;
+  background-size: 100% auto;
+}
+.img_thumb_slide {
+  //width: 400px; height: 400px;
+  border-radius: 8px;
+  background-size: 100% auto;
+}
+.img_thumb_slide_prod {
+  height: 150px;
+  width:  300px;
+  border: solid white thin;
+  background-repeat: inherit;
+  background-position: 50%;
+  border-radius: 5%;
+  background-size: 100% auto;
+}
+.own_table {
+  cellpadding: 100px;
+  cellspacing: 500px;
+  border: 6px double #d9edf7;
 }

@@ -4,7 +4,7 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
+    @productos = Producto.limit(3)
   end
 
   # GET /productos/1
