@@ -1,4 +1,6 @@
-<%= form_for(producto) do |f| %>
+
+<br>
+<%= form_for @producto, :html => {:class => "form-horizontal center"} do |f| %>
   <% if producto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
@@ -11,60 +13,89 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
+  <div class="container special">
 
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion %>
-  </div>
+      <div class="form-group">
+        <%= f.label :nombre, "Nombre", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_field :nombre, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :caracteristicas %>
-    <%= f.text_area :caracteristicas %>
-  </div>
+      <div class="form-group">
+        <%= f.label :descripcion, "Descripción", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_area :descripcion, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :especificaciones %>
-    <%= f.text_area :especificaciones %>
-  </div>
+      <div class="form-group">
+        <%= f.label :caracteristicas, "Características", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_area :caracteristicas, class: "form-control" %>
+          </div>
+      </div>
 
-  <%= f.fields_for :producto_adjuntos do |p| %>
+      <div class="form-group">
+        <%= f.label :especificaciones, "Especificaciones", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_area :especificaciones, class: "form-control" %>
+          </div>
+      </div>
 
-    <div class="field">
-      <%= p.label :avatar %>
-      <%= p.file_field :avatar, :multiple => true, name: "producto_adjuntos[avatar][]" %>
-    </div>
-  <% end %>
+      <%= f.fields_for :producto_adjuntos do |p| %>
+        <div class="form-group">
+          <%= p.label :avatar, "Imágenes", class: "col-md-4 control-label"  %>
+            <div class="col-md-6">
+          <%= p.file_field :avatar, :multiple => true, name: "producto_adjuntos[avatar][]" %>
+            </div>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :es_servicio %>
-    <%= f.check_box :es_servicio %>
-  </div>
+      <div class="form-group">
+        <%= f.label :es_servicio, "Es servicio", class: "col-md-4 control-label"  %>
+          <div class="col-md-1">
+        <%= f.check_box :es_servicio, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :es_propio %>
-    <%= f.check_box :es_propio %>
-  </div>
+      <div class="form-group">
+        <%= f.label :es_propio, "", class: "col-md-4 control-label"  %>
+          <div class="col-md-1">
+        <%= f.check_box :es_propio, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :nombre_empresa %>
-    <%= f.text_field :nombre_empresa %>
-  </div>
+      <div class="form-group">
+        <%= f.label :nombre_empresa, "", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_field :nombre_empresa, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :sitio_empresa %>
-    <%= f.text_field :sitio_empresa %>
-  </div>
+      <div class="form-group">
+        <%= f.label :sitio_empresa, "", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_field :sitio_empresa, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :url_prod_empresa %>
-    <%= f.text_field :url_prod_empresa %>
-  </div>
+      <div class="form-group">
+        <%= f.label :url_prod_empresa, "", class: "col-md-4 control-label"  %>
+          <div class="col-md-6">
+        <%= f.text_field :url_prod_empresa, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="row">
+        <div class="col-sm-8"></div>
+        <div class="col-sm-4">
+          <div class="actions">
+            <%= f.submit "Enviar", class: "btn btn-default btn-primary" %> 
+          </div>
+        </div>
+      </div>
+
+    
   </div>
 <% end %>

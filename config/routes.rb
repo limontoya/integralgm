@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :contactos
   resources :aboutus
   resources :producto_adjuntos
   resources :productos

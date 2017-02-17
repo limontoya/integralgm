@@ -1,0 +1,92 @@
+
+<br>
+<%= form_for @contacto, :html => {:class => "form-horizontal center"} do |f| %>
+  <% if contacto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contacto.errors.count, "error") %> prohibited this contacto from being saved:</h2>
+
+      <ul>
+      <% contacto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container special">
+
+    <h1 class="text-primary">Cont&aacute;ctenos</h1><br><br>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <p class="text-justify">
+Integral GM es un proveedor líder de sistemas y componentes para manejo de fluidos. Manejamos productos Graco y Titán que mueven, miden, controlan, dispensan y aplican una amplia variedad de fluidos y materiales viscosos utilizados en aplicaciones de pulverización de fluidos a nivel industrial y comercial y en la lubricación de vehículos. Los productos de Graco se utilizan normalmente para acabados por pulverización, circulación de pintura y lubricación, y para aplicar selladores y adhesivos en los sectores automotriz, industrial, de viviendas, de acabados de madera y otros mercados comerciales.
+      </p>
+    </div>
+    <div class="col-sm-4">
+      <img src="../../../intgm-contact.png" class="" alt="Integral GM" width="224" height="118">
+    </div>
+  </div>
+<hr style="width: 80%;">
+  <h4 class="text-primary"><strong>Para obtener el mejor servicio, póngase en contacto con nosotros a través del siguiente formulario.</strong></h4>
+<br><br>
+    <div class="form-group">
+      <%= f.label :peticion, "Petición", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_area :peticion, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :titulo, "Título", class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= f.select :titulo, options_for_select([['Sr.'], ['Sra.'], ['Srta.']]), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :nombre, "Nombre", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_field :nombre, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :correo, "Correo", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_field :correo, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ciudad, "Ciudad", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_field :ciudad, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :telefono, "Teléfono", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_field :telefono, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :codigozip, "Código ZIP", class: "col-md-4 control-label"  %>
+        <div class="col-md-6">
+      <%= f.text_field :codigozip, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-4">
+        <div class="actions">
+          <%= f.submit "Enviar", class: "btn btn-default btn-primary" %> 
+        </div>
+      </div>
+    </div>
+
+  </div>  
+<% end %>

@@ -35,8 +35,8 @@
             <li class="<%= 'active' if current_page?(productos_path) %>">
               <%= link_to 'Productos y Servicios', productos_path %></li>
 
-            <li class="<%= 'active' if current_page?(root_path) %>">
-              <%= link_to 'Contáctenos', root_path %></li>
+            <li class="<%= 'active' if current_page?(new_contacto_path) %>">
+              <%= link_to 'Contáctenos', new_contacto_path %></li>
 
             <li class="<%= 'active' if current_page?(aboutus_path) %>">
               <% @nosotros = aboutus_path + '/1' %>
