@@ -11,11 +11,7 @@ gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.3', '>= 1.3.13', group: [:development, :test]
-group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-end
+gem 'sqlite3', '~> 1.3', '>= 1.3.13', group: [:development, :test]
 # gems required by Heroku
 #gem 'pg', group: :production gem 'rails_12factor', group: :production
 group :production do
