@@ -13,12 +13,13 @@ gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.3', '>= 1.3.13', group: [:development, :test]
 group :development, :test do
-  gem 'sqlite3', '~> 1.3', '>= 1.3.13'
+  gem 'sqlite3'
   gem 'rspec-rails'
 end
 # gems required by Heroku
 #gem 'pg', group: :production gem 'rails_12factor', group: :production
 group :production do
+  gem 'thin'
   gem 'pg'
   gem 'rails_12factor'
 end
