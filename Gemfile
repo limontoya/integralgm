@@ -14,11 +14,10 @@ gem 'rails', '~> 5.0.1'
 #gem 'sqlite3', '~> 1.3', '>= 1.3.13', group: [:development, :test]
 # gems required by Heroku
 #gem 'pg', group: :production gem 'rails_12factor', group: :production
-group :production do
-  gem 'thin'
-  gem 'pg'
-  gem 'rails_12factor'
-end
+gem 'thin'
+gem 'pg'
+gem 'rails_12factor'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
