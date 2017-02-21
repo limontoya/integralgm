@@ -42,6 +42,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Following http://codepany.com/blog/rails-5-user-accounts-with-3-types-of-roles-devise-rails_admin-cancancan/
+# User accounts
+gem 'devise'
+# Notifier with toastr
+gem 'toastr-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

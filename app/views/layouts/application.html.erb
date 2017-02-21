@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+9<!DOCTYPE html>
 <html>
   <head>
     <title>Integralgm</title>
@@ -10,6 +10,14 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
+    <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |f| %>
+          <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+          toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+      </script>
+    <% end %>
   </head>
 
   <body>
@@ -43,7 +51,17 @@
               <%= link_to 'Nosotros', @nosotros %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <% if user_signed_in? %>
+             
+              <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
+              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>   
+              <li><%= link_to('Register', new_user_registration_path)  %></li>     
+             
+            <% else %>
+              
+              <li><%= link_to('Login', new_user_session_path)  %></li>  
+             
+            <% end %>
           </ul>
         </div>
       </div>

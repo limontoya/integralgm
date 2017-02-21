@@ -1,6 +1,9 @@
 class ContactosController < ApplicationController
   before_action :set_contacto, only: [:show, :edit, :update, :destroy]
 
+  # SKIP authentication
+  skip_before_action :authenticate_user!, :only => [:index, :show]
+
   # GET /contactos
   # GET /contactos.json
   def index

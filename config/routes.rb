@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :contactos
   resources :aboutus
   resources :producto_adjuntos
