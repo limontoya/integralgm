@@ -3,5 +3,11 @@
 
 <%= render 'form', producto: @producto %>
 
-<%= link_to 'Show', @producto %> |
-<%= link_to 'Back', productos_path %>
+<% if !current_user.nil? %> 
+	<% if current_user.user_role? %>
+  		<%= link_to 'Show', @producto %> |
+		<%= link_to 'Back', productos_path %>
+	<% end %>
+<% end %>
+
+

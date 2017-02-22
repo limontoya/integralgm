@@ -52,15 +52,20 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-             
-              <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
-              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>   
-              <li><%= link_to('Register', new_user_registration_path)  %></li>     
-             
-            <% else %>
+
+              <li> <%= link_to edit_user_registration_path do %>
+                  <i class="glyphicon glyphicon-edit"></i> Editar
+              <% end %> </li>  
+
+              <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
               
-              <li><%= link_to('Login', new_user_session_path)  %></li>  
-             
+            <% else %>
+              <li> <%= link_to new_user_registration_path do %>
+                  <i class="glyphicon glyphicon-user"></i> Registrarse
+              <% end %> </li>  
+              <li> <%= link_to new_user_session_path do %>
+                  <i class="glyphicon glyphicon-log-in"></i> Login
+              <% end %> </li>
             <% end %>
           </ul>
         </div>
@@ -77,10 +82,13 @@
     </div>
 
     <!-- FOOTER -->
-    <br><br>
+    <br>
     <footer class="container">
-      <p class="pull-right"><a href="#">Back to top</a></p>
-      <p>&copy; 2017 &middot; Integral GM &middot; SAS </p>
-    </footer>
+      <p class="text-primary pull-right"><i class="glyphicon glyphicon-circle-arrow-up"></i>
+      &nbsp;<b><a href="#">Subir</a></b></p>
+      <p>&copy; 2017 &middot; Integral GM &middot; SAS 
+      <% if user_signed_in? %> &middot; En sesi&oacute;n <i><%= current_user.email %> </i><% end %>
+      </p>
+    </footer><br>
   </body>
 </html>

@@ -16,9 +16,16 @@
       <tr>
         <td><%= producto_adjunto.producto_id %></td>
         <td><%=image_tag producto_adjunto.avatar , class: 'img_small'%></td>
-        <td><%= link_to 'Show', producto_adjunto %></td>
-        <td><%= link_to 'Edit', edit_producto_adjunto_path(producto_adjunto) %></td>
-        <td><%= link_to 'Destroy', producto_adjunto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if !current_user.nil? %> 
+          <% if current_user.user_role? %>
+            <td><%= link_to 'Show', producto_adjunto %></td>
+            <td><%= link_to 'Edit', edit_producto_adjunto_path(producto_adjunto) %></td>
+            <td><%= link_to 'Destroy', producto_adjunto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+
+        
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +33,9 @@
 
 <br>
 
-<%= link_to 'New Producto Adjunto', new_producto_adjunto_path %>
+<% if !current_user.nil? %> 
+  <% if current_user.user_role? %>
+    <%= link_to 'New Producto Adjunto', new_producto_adjunto_path %>
+  <% end %>
+<% end %>
+

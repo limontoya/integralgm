@@ -2,5 +2,10 @@
 
 <%= render 'form', contacto: @contacto %>
 
-<%= link_to 'Show', @contacto %> |
-<%= link_to 'Back', contactos_path %>
+  <% if !current_user.nil? %> 
+    <% if current_user.user_role? %>
+      <%= link_to 'Show', @contacto %> |
+	  <%= link_to 'Back', contactos_path %>
+    <% end %>
+  <% end %>
+

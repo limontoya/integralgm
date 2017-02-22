@@ -14,11 +14,11 @@
         <div class="col-md-6 col-md-4">
           <div class="row">
             <!-- Carousel ========================================== -->
-            <div align="center" id="myProductCarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+            <div align="center" id="eachProduct" class="carousel slide" data-interval="2000" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <% @producto_adjuntos.each_with_index do |image, index| %>
-                  <li data-target="#myProductCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                  <li data-target="#eachProduct" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
                 <% end %>
               </ol>
 
@@ -34,11 +34,11 @@
                   <% end %>
                 </div>
 
-                <a class="left carousel-control" href="#myProductCarousel" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#eachProduct" role="button" data-slide="prev">
                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#myProductCarousel" role="button" data-slide="next">
+                <a class="right carousel-control" href="#eachProduct" role="button" data-slide="next">
                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
@@ -92,8 +92,13 @@
 
 <br><br>
 
-<%= link_to 'Edit', edit_producto_path(@producto) %> |
-<%= link_to 'Back', productos_path %>
+<% if !current_user.nil? %> 
+  <% if current_user.user_role? %>
+    <%= link_to 'Edit', edit_producto_path(@producto) %> |
+    <%= link_to 'Back', productos_path %>
+  <% end %>
+<% end %>
+
 
 <!--script> Solo en caso que se requiera que el slide inicie solo
 // Load this when the DOM is ready
