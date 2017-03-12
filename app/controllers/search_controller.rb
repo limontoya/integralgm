@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   # SKIP authentication
-  skip_before_action :authenticate_user!, :only => [:index, :show]
+  skip_before_action :authenticate_user!, :only => [:index, :create, :show, :edit, :update, :destroy]
 
   def create
   	palabra = "%#{params[:keyword]}%"
