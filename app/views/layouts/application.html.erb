@@ -1,4 +1,4 @@
-9<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Integralgm</title>
@@ -12,10 +12,10 @@
     <![endif]-->
     <% unless flash.empty? %>
       <script type="text/javascript">
-        <% flash.each do |f| %>
-          <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-          toastr['<%= type %>']('<%= f[1] %>');
-        <% end %>
+          <% flash.each do |f| %>
+              <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+              toastr['<%= type %>']('<%= f[1] %>', '', {"closeButton": false, "debug": false, "positionClass": "toast-bottom-full-width", "onclick": null, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" });
+          <% end %>
       </script>
     <% end %>
   </head>
@@ -23,7 +23,7 @@
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -31,43 +31,63 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-left" href="/">
-            <img src="../../logo.png" class="img-rounded" alt="Integral GM" width="124" height="48">
+          <a class="navbar-left" href="/" style="padding-right: 12em;">
+            <img src="../../logo.png" class="img-rounded navbar-logo" alt="Integral GM" width="176" height="63">
           </a>&nbsp;
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="<%= 'active' if current_page?(root_path) %>">
-              <%= link_to 'Inicio', root_path %></li>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <ul class="nav navbar-nav">
+                <li class="<%= 'active' if current_page?(root_path) %>">
+                  <%= link_to 'Inicio', root_path %></li>
 
-            <li class="<%= 'active' if current_page?(productos_path) %>">
-              <%= link_to 'Productos y Servicios', productos_path %></li>
+                <li class="<%= 'active' if current_page?(productos_path) %>">
+                  <%= link_to 'Productos y Servicios', productos_path %></li>
 
-            <li class="<%= 'active' if current_page?(new_contacto_path) %>">
-              <%= link_to 'Contáctenos', new_contacto_path %></li>
+                <li class="<%= 'active' if current_page?(new_contacto_path) %>">
+                  <%= link_to 'Contáctenos', new_contacto_path %></li>
 
-            <li class="<%= 'active' if current_page?(aboutus_path) %>">
-              <% @nosotros = aboutus_path + '/1' %>
-              <%= link_to 'Nosotros', @nosotros %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
+                <li class="<%= 'active' if current_page?(aboutus_path) %>">
+                  <% @nosotros = aboutus_path + '/1' %>
+                  <%= link_to 'Nosotros', @nosotros %></li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <ul class="nav navbar-nav pull-right">
+                <% if user_signed_in? %>
 
-              <li> <%= link_to edit_user_registration_path do %>
-                  <i class="glyphicon glyphicon-edit"></i> Editar
-              <% end %> </li>  
+                  <% if !current_user.nil? && current_user.superadmin_role? %>
+                    <li> <%= link_to rails_admin_path do %>
+                        <i class="glyphicon glyphicon-dashboard"></i> Admin
+                    <% end %> </li>
+                  <% end %>   
 
-              <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
-              
-            <% else %>
-              <li> <%= link_to new_user_registration_path do %>
-                  <i class="glyphicon glyphicon-user"></i> Registrarse
-              <% end %> </li>  
-              <li> <%= link_to new_user_session_path do %>
-                  <i class="glyphicon glyphicon-log-in"></i> Login
-              <% end %> </li>
-            <% end %>
-          </ul>
+                  <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
+                  
+                <% else %>
+                  
+                  <li> <%= link_to new_user_session_path do %>
+                      <i class="glyphicon glyphicon-log-in"></i> Login
+                  <% end %> </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row text-primary">
+            <div class="col-xs-6 col-sm-3"></div>
+            <div class="col-xs-6 col-sm-3"></div>
+            <div class="col-xs-6 col-sm-3">
+              <div class="text-center" id="txTime"></div>
+            </div>
+            <div class="col-xs-6 col-sm-3"> 
+              <!-- Inicio widget Dolar-Colombia.com -->
+              <script src="http://www.dolar-colombia.com/widget.js?t=1&c=1"></script>
+              <br>
+              <!-- Fin widget Dolar-Colombia.com -->
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -75,7 +95,7 @@
     <!-- MAIN CONTENT-->
   	<div id="main-container" class="container">
       <div class="row">
-        <div id="main-content" class="panel panel-info" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+        <div id="main-content" class="panel panel-info" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);"><br><br>
           <%= yield %>
         </div>
       </div>

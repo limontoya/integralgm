@@ -7,10 +7,10 @@
       <div class="container special">
         <div class="jumbotron">
           <center>
-            <h1 class="text-primary">¡Bienvenido!</h1>
-            <h2 class="text-info">Servicios con calidad</h2>
+            <h1 style="color:#fff;">¡Bienvenido!</h1>
+            <h2><i>Servicios con calidad</i></h2>
             <br>
-            <p class="text-justify text-muted"><%= aboutu.descripcion %></p>
+            <p class="text-justify"><%= aboutu.descripcion %></p>
           </center>
         </div>
 
@@ -20,7 +20,7 @@
           <br><br><br></h3>
         </div>
 
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
           <div class="panel-heading">
           <h2 class="text-center">Nuestra oferta</h2>
           </div>
@@ -28,54 +28,44 @@
             <div class="row text-center">
               <div class="col-sm-4 text-center">
                 <center>
-                  <div class="img_integral bg-primary"><br>
-                    <span class="glyphicon glyphicon-briefcase" style="font-size: 40px;"></span>
-                    <br>&nbsp;
+                  <div class="img_integral"><br>
+                    <%= link_to productos_path do %>
+                      <i class="glyphicon glyphicon-briefcase" style="font-size: 40px;"></i>
+                    <% end %><br>&nbsp;
                   </div>
                 </center>
                 <h3 class="text-primary">Productos</h3><br>
                 <p class="text-muted">Conozca nuestro portafolio de productos Conozca nuestro portafolio de productosConozca nuestro portafolio de productos</p><br>
-                <a href="productos" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Ver m&aacute;s...</a>
               </div>
 
               <div class="col-sm-4 text-center">
                 <center>
-                  <div class="img_integral bg-primary"><br>
-                    <span class="glyphicon glyphicon-wrench" style="font-size: 40px;"></span>
-                    <br>&nbsp;
+                  <div class="img_integral"><br>
+                    <%= link_to productos_path do %>
+                      <i class="glyphicon glyphicon-wrench" style="font-size: 40px;"></i>
+                    <% end %><br>&nbsp;
                   </div>
                 </center>
                 <h3 class="text-primary">Servicios</h3><br>
                 <p class="text-muted">Conozca nuestro portafolio de servicios Conozca nuestro portafolio de serviciosConozca nuestro portafolio de servicios</p><br>
-                <a href="productos" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Ver m&aacute;s...</a>
               </div>
 
               <div class="col-sm-4 text-center">
                 <center>
-                  <div class="img_integral bg-primary"><br>
-                    <span class="glyphicon glyphicon-tower" style="font-size: 40px;"></span>
-                    <br>&nbsp;
+                  <div class="img_integral"><br>
+                    <a href="aboutus/1">
+                        <i class="glyphicon glyphicon-tower" style="font-size: 40px;"></i>
+                    </a><br>&nbsp;
                   </div>
                 </center>
                 <h3 class="text-primary">Nosotros</h3><br>
                 <p class="text-muted">Conozca nuestra empresa, nuestras metas, mision y vision de Integral GM nuestra ubicacionIntegral GM nuestra ubicacion</p><br>
-                <a href="aboutus/1" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Ver m&aacute;s...</a>
               </div>
-              
-              
             </div>
-
           <br><br>
           </div>
         </div>
-
-          <br><br>
-          </h2>
-        </div>
-        
+        <br>
       </div>
     </div>
 
