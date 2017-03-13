@@ -57,11 +57,11 @@
         </div>
       </div>
       <a class="left carousel-control" href="#myProductCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-chevron-left text-primary" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="right carousel-control" href="#myProductCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-chevron-right text-primary" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
@@ -74,7 +74,7 @@
       <div class="row">
         <% @productos.each do |producto| %>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <table class="own_table bg-info">
+          <table class="own_table">
             <tr align="center">
               <td style="width: 60%; height: 30%;"><br>
                 <%= image_tag producto.producto_adjuntos.first.avatar_url , class: 'img_thumb_small' %>
@@ -82,7 +82,7 @@
             </tr>
             <tr align="center">
               <td style="width: 60%; height: 20%;"><br>
-                <h5 class="text-primary"><b><%= producto.nombre.truncate(40) %></b></h5>
+                <h5 class="text-primary"><b><%= producto.nombre.truncate(30) %></b></h5>
               </td>
             </tr>
             <tr>
@@ -92,18 +92,19 @@
             </tr>
             <tr>
               <td style="width: 60%; height: 10%;">
-              <%= link_to 'Ver más', producto %>
+              <%= link_to 'Detalle...', producto %>
                 <% if !current_user.nil? %> 
                   <% if current_user.user_role? %>
                     
-                    <%= link_to 'Edit', edit_producto_path(producto) %>
-                    <%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Editar', edit_producto_path(producto) %>
+                    <%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Are you sure?' } %>
                   <% end %>
                 <% end %>
                 
               </td>
             </tr>
           </table>
+          <br><br>
         </div>
         <%end%>
       </div>
