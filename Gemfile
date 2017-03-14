@@ -52,7 +52,8 @@ gem 'toastr-rails'
 gem 'rails_admin', '>= 1.0.0.rc'
 # CanCanCan gem restricts access to some parts of app
 gem 'cancancan'
-
+# Confirm modal
+gem 'data-confirm-modal'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
