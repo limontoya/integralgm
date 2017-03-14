@@ -62,7 +62,7 @@
                         <i class="glyphicon glyphicon-dashboard"></i> Admin
                     <% end %> </li>
                   <% end %>   
-                  <li><i><%= link_to(current_user.email, edit_user_registration_path) %></i></li>
+                  <li><i><%= link_to(truncate(current_user.email, :length => 10, :separator => '@'), edit_user_registration_path) %></i></li>
                   <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
                   
                 <% else %>

@@ -7,7 +7,7 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.limit(3)
+    @productos = Producto.limit(9)
   end
 
   # GET /productos/1
