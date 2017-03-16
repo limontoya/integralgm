@@ -1,8 +1,4 @@
 <div class="panel panel-success">
-Resultados de la b&uacute;squeda:
-<br>
-	<strong><%= producto.nombre %></strong>
-	<%= producto.descripcion %>
-	-
-	<%= link_to "Ver", producto, style:"color:green;text-decoration:underline;" %>
+	<strong class="text-primary"><%= producto.nombre %></strong>
+	<p class="text-muted"><%= producto.descripcion.truncate(50) %> &nbsp;<%= link_to "Detalle...", producto, :class => "btn btn-success btn-xs" %></p>
 </div>

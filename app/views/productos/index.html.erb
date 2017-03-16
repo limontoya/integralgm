@@ -1,28 +1,14 @@
- <div class="container special">
+ <div onended="checkTRM();" class="container special">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6"><br>
       <h2 class="text-primary">Productos y Servicios</h2>
     </div>
-    <div class="col-sm-6">
-      <div class="panel text-right">
-        <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form', role: 'search' do %>
-          <div class="input-group-sm"><br>
-            <%= text_field_tag :keyword, nil, size: 30, placeholder: "Busca un producto...", class: "form-control"%>
-            <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"></i></span>
-          </div>
-        <% end %>
-      </div>
-    </div>
 
-    <br>
-    <div id="resultados"></div>
-
-    <br><br><br>
+    <br><br><br><br>
 
     <div class="panel panel-primary">
       <div class="panel-heading">
       <center>
-        <h3 style="color:#fff;"><i>Seleccione una categor&iacute;a:</i></h3>
         <br>
         <a href="#" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-th"></span> Productos 

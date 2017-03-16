@@ -6,7 +6,7 @@ class SearchController < ApplicationController
   def create
   	palabra = "%#{params[:keyword]}%"
 
-  	@productos = Producto.where("nombre LIKE ? OR descripcion LIKE ? OR especificaciones LIKE ? OR caracteristicas LIKE ?", palabra,palabra,palabra,palabra).order("created_at DESC")
+  	@productos = Producto.where("nombre LIKE ? OR descripcion LIKE ? OR especificaciones LIKE ? OR caracteristicas LIKE ? OR nombre_empresa LIKE ?", palabra,palabra,palabra,palabra,palabra).order("created_at DESC")
   	
   	respond_to do |format|
   		format.html { redirect_to root_path }
