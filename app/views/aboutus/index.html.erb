@@ -1,9 +1,8 @@
   <% @aboutus.each do |aboutu| %>
 
-    <div class="container-full-bg">
+    <div id="portafolio" class="container-full-bg">
       <div class="container special">
-        
-        <div><br><br>
+        <div><br><br><h1><%= link_to 'Portafolio', productos_path %></h1><br>
           <!-- Carousel ========================================== -->
           <div align="center" id="myProductCarousel" class="carousel slide carousel-left" data-interval="3500" data-ride="carousel">
             <!-- Indicators -->
@@ -49,59 +48,41 @@
               <span class="glyphicon glyphicon-chevron-right text-primary" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div><!-- /.carousel -->
+          </div><!-- /.carousel portafolio -->
         <br><br>
         </div>
 
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h4 class="text-justify"><%= aboutu.descripcion %></h4>
-          </div>
-        </div>
-
-        <div class="panel panel-primary">
-          <div class="panel-body"><br>
-            <div class="row text-center">
-              <div class="col-sm-4 text-center">
-                <center>
-                  <div class="img_integral"><br>
-                    <%= link_to productos_path do %>
-                      <i class="glyphicon glyphicon-briefcase" style="font-size: 40px;"></i>
-                    <% end %><br>&nbsp;
-                  </div>
-                </center>
-                <h3 class="text-primary">Productos</h3><br>
-                <p class="text-muted">Conozca nuestro portafolio de productos Conozca nuestro portafolio de productosConozca nuestro portafolio de productos</p><br>
-              </div>
-
-              <div class="col-sm-4 text-center">
-                <center>
-                  <div class="img_integral"><br>
-                    <%= link_to productos_path do %>
-                      <i class="glyphicon glyphicon-wrench" style="font-size: 40px;"></i>
-                    <% end %><br>&nbsp;
-                  </div>
-                </center>
-                <h3 class="text-primary">Servicios</h3><br>
-                <p class="text-muted">Conozca nuestro portafolio de servicios Conozca nuestro portafolio de serviciosConozca nuestro portafolio de servicios</p><br>
-              </div>
-
-              <div class="col-sm-4 text-center">
-                <center>
-                  <div class="img_integral"><br>
-                    <a href="aboutus/1">
-                        <i class="glyphicon glyphicon-tower" style="font-size: 40px;"></i>
-                    </a><br>&nbsp;
-                  </div>
-                </center>
-                <h3 class="text-primary">Nosotros</h3><br>
-                <p class="text-muted">Conozca nuestra empresa, nuestras metas, mision y vision de Integral GM nuestra ubicacionIntegral GM nuestra ubicacion</p><br>
-              </div>
+        <!-- Container (Contacto Section) -->
+        <div id="contacto" class="container-fluid bg-grey" style="background-color: #f9f9f9;">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= link_to new_contacto_path do %>
+                <i class="glyphicon glyphicon-globe glyphlogo slideanim" style="font-size: 200px;"></i>
+              <% end %>&nbsp;
             </div>
-          <br>
+            <div class="col-sm-8">
+              <h1><%= link_to 'Contáctenos', new_contacto_path %></h1><br>
+              <h4 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+            </div>
           </div>
         </div>
-        <br>
+
+        <!-- Container (Nosotros Section) -->
+        <div id="nosotros" class="container-fluid">
+          <div class="row">
+            <div class="col-sm-8">
+              <% @nosotrosabt = aboutus_path + '/1' %>
+              <h1><%= link_to 'Nosotros', @nosotrosabt %></h1><br>
+              <h4 class="text-justify"><%= aboutu.descripcion %></h4><br>
+            </div>
+            <div class="col-sm-4 text-primary">
+              <a href="<%= @nosotrosabt %>">
+                <img src="../../intgm-nosotros.JPG" class="img-rounded slideanim" alt="Nosotros somos Integral GM" width="210" height="270" style="margin-top: 2px;">
+              </a><br>&nbsp;
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 

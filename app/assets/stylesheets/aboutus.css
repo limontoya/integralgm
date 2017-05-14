@@ -38,3 +38,13 @@
     width: 90px;
     border-radius: 200px;
 }
+h1 {
+  color: #428bca;
+  text-shadow: 2px 2px #b3b3b3;
+  font-family: Malayalam MN, sans-serif;
+}
+.glyphlogo {
+  color: #428bca;
+  margin-top: 15px;
+  font-size: 200px;
+}

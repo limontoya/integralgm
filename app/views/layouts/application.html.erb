@@ -24,37 +24,50 @@
   <body onload="startTime();checkTRM();">
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top" onmouseover="checkTRM(); return false">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarigm" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-left" href="/" style="padding-right: 11em;">
-            <img src="../../logo.png" class="img-rounded navbar-logo" alt="Integral GM" width="173" height="60" style="margin-top: 3px;">
+          <a class="navbar-brand" href="#" style="padding-right: 8em;">
+            <img src="../../logo.png" class="img-rounded navbar-logo" alt="Integral GM" width="169" height="57" style="margin-top: 2px;">
           </a>&nbsp;
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <div class="row">
-            <div class="col-xs-12 col-md-7">
-              <ul class="nav navbar-nav">
+        <div id="navbarigm" class="navbar-collapse collapse">
+          
+              <ul class="nav navbar-nav navbar-left">
                 <li class="<%= 'active' if current_page?(root_path) %>">
                   <%= link_to 'Inicio', root_path %></li>
 
                 <li class="<%= 'active' if current_page?(productos_path) %>">
-                  <%= link_to 'Productos y Servicios', productos_path %></li>
+                  <% if current_page?(root_path) %>
+                    <a href="#portafolio">Portafolio</a>
+                  <% else %>
+                    <%= link_to 'Portafolio', productos_path %>
+                  <% end %>
+                </li>
 
                 <li class="<%= 'active' if current_page?(new_contacto_path) %>">
-                  <%= link_to 'Contáctenos', new_contacto_path %></li>
+                  <% if current_page?(root_path) %>
+                    <a href="#contacto">Cont&aacute;ctenos</a>
+                  <% else %>
+                    <%= link_to 'Contáctenos', new_contacto_path %>
+                  <% end %>
+                </li>
 
                 <li class="<%= 'active' if current_page?(aboutus_path) %>">
-                  <% @nosotros = aboutus_path + '/1' %>
-                  <%= link_to 'Nosotros', @nosotros %></li>
+                  <% if current_page?(root_path) %>
+                    <a href="#nosotros">Nosotros</a>
+                  <% else %>
+                    <% @nosotros = aboutus_path + '/1' %>
+                    <%= link_to 'Nosotros', @nosotros %>
+                  <% end %>
+                </li>
               </ul>
-            </div>
-            <div class="col-xs-4 col-md-3">
+            
               <ul class="nav navbar-nav pull-right">
                 <% if user_signed_in? %>
 
@@ -73,40 +86,24 @@
                   <% end %> </li>
                 <% end %>
               </ul>
-            </div>
-          </div>
-
-          <div class="row text-primary">
-            <div class="col-xs-6 col-sm-3"></div>
-            <div class="col-xs-8 col-sm-4">
-              <div class="text-center" style="margin-top: 14px;" id="txTime"></div>
-            </div>
-            <div class="col-xs-3 col-sm-2" onclick="redirTRM();return false">
-              <div id="IframeWrapper" style="position: relative;" width="200" height="27">
-                  <iframe id="frameTRM" width="200" height="27" style="border:0;margin-top: 6px;"></iframe>
-                  <div id="iframeBlocker" style="position:absolute; top: 0; left: 0; width:95%; height:95%;background-color:none;opacity:0.1;"></div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-                  <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form  navbar-right', role: 'search' do %>
-                <div class="input-group-sm">
-                  <%= text_field_tag :keyword, nil, size: 25, placeholder: "Buscar...", class: "form-control"%>
-                  <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"><%= submit_tag " ", class: 'hidden' , data: {target: "#myModalSearch", toggle: "modal"} %></i></span>
-                </div>
-              <% end %>
-            </div>
-          </div>
+            
         </div>
       </div>
     </nav>
+    <% if current_page?(root_path) %>
+      <div class="jumbotronx text-center">
+        <h1>INTEGRAL GM SAS</h1>
+        <h2>Productos y Servicios</h2>
+      </div>
+    <% end %>
     <br><br>
     <!-- MAIN CONTENT-->
   	<div id="main-container" class="container">
       <div class="row">
-        <div id="main-content" class="panel panel-info" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);"><br>
+        <div id="main-content"><br>
           <% if notice %><br>
             <div class="alert alert-info alert-dismissable fade in" role="alert">
-            <a href="#" class="close" data-dismiss="notice" aria-label="close">&times;</a>
+            <a href="/" class="close" data-dismiss="notice" aria-label="close">&times;</a>
             <%= notice %></div>
           <% end %>
 
@@ -135,19 +132,60 @@
           </div>
 
           <%= yield %>
+
         </div>
       </div>
     </div>
 
     <!-- FOOTER -->
     <br>
-    <footer class="container">
-      <p class="text-primary pull-right"><i class="glyphicon glyphicon-circle-arrow-up"></i>
-      &nbsp;<b><a href="#">Subir</a></b></p>
+    <footer class="container-fluid text-center bg-grey" style="background-color: #f9f9f9">
+      <a href="#" title="Subir">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
       <p>&copy; 2017 &middot; Integral GM &middot; SAS 
-      <% if user_signed_in? %> &middot; En sesi&oacute;n <i><%= current_user.email %> </i><% end %>
+        <% if user_signed_in? %> &middot; En sesi&oacute;n <i><%= current_user.email %> </i><% end %>
       </p>
     </footer><br>
+
+<script>
+$(document).ready(function(){
+  // Taken from w3schools
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
   </body>
 </html>
 

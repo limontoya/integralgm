@@ -63,7 +63,7 @@ function checkTRM(){
 
 	    iframe.onload = function () {
 	        var body = iframe.contentWindow.document.querySelector('body');
-	        body.style.fontFamily = 'Helvetica Neue';
+	        body.style.fontFamily = 'Malayalam MN';
 	        body.style.color = '#4286f4';
 	        body.style.fontSize = '14px';
 	        body.style.lineHeight = '20px';
@@ -75,7 +75,7 @@ function checkTRM(){
 	    iframeDoc.write('\<script src="http://www.dolar-colombia.com/widget.js?t=1&c=1">\<\/script>');
 	    iframeDoc.close();
 	  });
-	} else alert('hey! soy null.. porque?');
+	} //else alert('hey! soy null.. porque?');
 }
 
 function redirTRM(){
