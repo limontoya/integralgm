@@ -20,6 +20,26 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+.floating-menu {
+  font-family: Malayalam MN, sans-serif;
+  background: transparent !important;
+  padding: 1px;
+  width: 40px;
+  z-index: 100;
+  margin-top: 20px;
+  margin-right: 5px;
+  right: 1px;
+  position: fixed;
+}
+
+.floating-menu a, 
+.floating-menu h3 {
+  font-size: 1.6em;
+  display: block;
+  margin: 0 0.5em;
+  color: #428bca;
+}
+
 .jumbotronx {
   background-color: #c3daee;
   color: #275d8b;
@@ -29,11 +49,9 @@
   font-family: Malayalam MN, sans-serif;
 }
 
-.h1 {
-  color: #275d8b;
+h1 {
+  color: #428bca;
   text-shadow: 2px 2px #b3b3b3;
-  padding: 100px 25px;
-  font-weight: 400;
   font-family: Malayalam MN, sans-serif;
 }
 

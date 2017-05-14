@@ -20,10 +20,9 @@
     <% end %>
     </script>
   </head>
-
-  <body onload="startTime();checkTRM();">
+  <body data-spy="scroll" data-target=".navbar" data-offset="60">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-default navbar-fixed-top" onmouseover="checkTRM(); return false">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarigm" aria-expanded="false" aria-controls="navbar">
@@ -90,6 +89,15 @@
         </div>
       </div>
     </nav>
+    <!-- ===== END NAVBAR ===== -->
+    <!-- MENU FLOTANTE Busqueda, Hora Colombia, TRM -->
+    <p>Scroll down and watch the menu remain fixed in the same position, as though it was floating.</p>
+
+    <nav class="floating-menu">
+      <a href="javascript:startTime();checkTRM();">
+      <span class="glyphicon glyphicon-paperclip"></span></a> 
+    </nav>
+    <!-- JUMBOTRON -->
     <% if current_page?(root_path) %>
       <div class="jumbotronx text-center">
         <h1>INTEGRAL GM SAS</h1>
@@ -114,9 +122,8 @@
           <% end %>
 
           <!-- Modal -->
-          <div id="myModalSearch" class="modal fade" role="dialog">
+          <div id="myModalSearch" class="modal fade" role="dialog" style="display: none; z-index: 1050; margin-top: 30px;">
             <div class="modal-dialog">
-
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
@@ -143,6 +150,52 @@
       <a href="#" title="Subir">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
+
+      <!-- Container (Contenido - Contacto - Mas - Section) -->
+      <div class="container-fluid text-justify">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4><span class="glyphicon glyphicon-off"></span>&nbsp;CONTENIDO</h4> 
+            <hr>
+            <p>
+              <%= link_to 'Inicio', root_path %>
+              <br><br><%= link_to 'Portafolio', productos_path %>
+              <br><br><%= link_to 'Contáctenos', new_contacto_path %>
+              <br><br><% @nosotrosftr = aboutus_path + '/1' %><%= link_to 'Nosotros', @nosotrosftr %>
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <h4><span class="glyphicon glyphicon-globe"></span>&nbsp;CONT&Aacute;CTENOS</h4>
+            <hr>
+            <p>
+              <p><span class="glyphicon glyphicon-envelope"></span>
+                &nbsp; contacto@integralgmsas.com </p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> 
+                Carrera 5 # 60 - 147
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;Cali, Valle 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;760004 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;Colombia
+              </p>
+              <p><span class="glyphicon glyphicon-phone-alt"></span>
+                &nbsp;(+572) 3737391</p>
+              <p><span class="glyphicon glyphicon-phone"></span>
+                &nbsp;(+57) 3163737391</p>
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <h4><span class="glyphicon glyphicon-cog"></span>&nbsp;M&Aacute;S</h4>
+            <hr>
+            <div>
+              <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form  navbar-left', role: 'search' do %>
+              <div class="input-group-sm">
+                <%= text_field_tag :keyword, nil, size: 25, placeholder: "Buscar productos...", class: "form-control"%>
+                <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"><%= submit_tag " ", class: 'hidden' , data: {target: "#myModalSearch", toggle: "modal"} %></i></span>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
       <p>&copy; 2017 &middot; Integral GM &middot; SAS 
         <% if user_signed_in? %> &middot; En sesi&oacute;n <i><%= current_user.email %> </i><% end %>
       </p>

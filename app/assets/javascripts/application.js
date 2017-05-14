@@ -46,6 +46,7 @@ function startTime() {
 
     document.getElementById('txTime').innerHTML = horaCol + horaSys.bold();
     var t = setTimeout(startTime, 500);
+    alert(horaCol + horaSys.bold());
 }
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
@@ -75,7 +76,9 @@ function checkTRM(){
 	    iframeDoc.write('\<script src="http://www.dolar-colombia.com/widget.js?t=1&c=1">\<\/script>');
 	    iframeDoc.close();
 	  });
-	} //else alert('hey! soy null.. porque?');
+	} //else 
+
+	alert('hey! TRM');
 }
 
 function redirTRM(){
