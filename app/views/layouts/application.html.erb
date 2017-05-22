@@ -20,7 +20,8 @@
     <% end %>
     </script>
   </head>
-  <body data-spy="scroll" data-target=".navbar" data-offset="60">
+  <body data-spy="scroll" data-target=".navbar" data-offset="60" onload="startTime();checkTRM();">
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -91,11 +92,31 @@
     </nav>
     <!-- ===== END NAVBAR ===== -->
     <!-- MENU FLOTANTE Busqueda, Hora Colombia, TRM -->
-    <p>Scroll down and watch the menu remain fixed in the same position, as though it was floating.</p>
-
     <nav class="floating-menu">
-      <a href="javascript:startTime();checkTRM();">
-      <span class="glyphicon glyphicon-paperclip"></span></a> 
+      <div id="mySidenav" class="sidenav">
+        <a id="blog" class="row" style="height: 47px;" onmouseover="javascript:checkTRM();">
+          <div class="row" style="color: white;">
+          <div class="col-xs-4 col-sm-4 col-lg-4">
+              <span class="glyphicon glyphicon-paperclip" style="font-size: 18px; margin-right: 4px;"></span>
+              <div class="text-center" id="txTime" style="margin-top: -24px;"></div>&nbsp;
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-4" onclick="redirTRM();return false">
+              <div id="IframeWrapper" style="position: relative;" width="200" height="27">
+                <iframe id="frameTRM" width="200" height="27" style="border:0;margin-top: -6px;"></iframe>
+                <div id="iframeBlocker" style="position:absolute; top: 0; left: 0; width:95%; height:95%;background-color:none;opacity:0.1;"></div>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-4" style="margin-top: -9px;">
+              <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form  navbar-right', role: 'search' do %>
+                <div class="input-group-sm">
+                  <%= text_field_tag :keyword, nil, size: 25, placeholder: "Buscar...", class: "form-control"%>
+                  <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"><%= submit_tag " ", class: 'hidden' , data: {target: "#myModalSearch", toggle: "modal"} %></i></span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </a>
+      </div>
     </nav>
     <!-- JUMBOTRON -->
     <% if current_page?(root_path) %>
@@ -171,11 +192,10 @@
               <p><span class="glyphicon glyphicon-envelope"></span>
                 &nbsp; contacto@integralgmsas.com </p>
               <p><span class="glyphicon glyphicon-map-marker"></span> 
-                Carrera 5 # 60 - 147
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;Cali, Valle 
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;760004 
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;Colombia
-              </p>
+                &nbsp; Carrera 5 # 60 - 147</p>
+                <p style="margin-left: 27px;">Cali, Valle</p> 
+                <p style="margin-left: 27px;">760004</p> 
+                <p style="margin-left: 27px;">Colombia</p> 
               <p><span class="glyphicon glyphicon-phone-alt"></span>
                 &nbsp;(+572) 3737391</p>
               <p><span class="glyphicon glyphicon-phone"></span>
@@ -183,12 +203,12 @@
             </p>
           </div>
           <div class="col-sm-4">
-            <h4><span class="glyphicon glyphicon-cog"></span>&nbsp;M&Aacute;S</h4>
+            <h4><span class="glyphicon glyphicon-cog"></span>&nbsp;PORTAFOLIO</h4>
             <hr>
             <div>
               <%= form_tag "/search/create", method: 'get', remote: true, class: 'navbar-form  navbar-left', role: 'search' do %>
               <div class="input-group-sm">
-                <%= text_field_tag :keyword, nil, size: 25, placeholder: "Buscar productos...", class: "form-control"%>
+                <%= text_field_tag :keyword, nil, size: 25, placeholder: "Buscar en portafolio...", class: "form-control"%>
                 <span class="input-group-addon-sm"><i class="glyphicon glyphicon-search"><%= submit_tag " ", class: 'hidden' , data: {target: "#myModalSearch", toggle: "modal"} %></i></span>
               </div>
               <% end %>

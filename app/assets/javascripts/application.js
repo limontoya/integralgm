@@ -46,7 +46,6 @@ function startTime() {
 
     document.getElementById('txTime').innerHTML = horaCol + horaSys.bold();
     var t = setTimeout(startTime, 500);
-    alert(horaCol + horaSys.bold());
 }
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
@@ -65,8 +64,8 @@ function checkTRM(){
 	    iframe.onload = function () {
 	        var body = iframe.contentWindow.document.querySelector('body');
 	        body.style.fontFamily = 'Malayalam MN';
-	        body.style.color = '#4286f4';
-	        body.style.fontSize = '14px';
+	        body.style.color = 'white';
+	        body.style.fontSize = '15px';
 	        body.style.lineHeight = '20px';
 	    };
 
@@ -77,8 +76,6 @@ function checkTRM(){
 	    iframeDoc.close();
 	  });
 	} //else 
-
-	alert('hey! TRM');
 }
 
 function redirTRM(){
